@@ -113,7 +113,7 @@ header p {
 
 /* Audio Player Styles */
 .audio-container {
-    margin-top: 2rem;
+    margin-top: 1rem;
     animation: fadeIn 0.5s ease;
 }
 
@@ -122,19 +122,66 @@ header p {
 }
 
 audio {
-    width: 100%;
-    margin-bottom: 2rem;
-    border-radius: 50px;
-    outline: none;
+    display: none;
 }
 
-/* Chrome/Safari audio styling override */
-audio::-webkit-media-controls-panel {
-    background-color: var(--glass-bg);
+/* Custom Player Styles */
+.custom-player {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 0.75rem 1.25rem;
+    border-radius: 50px;
 }
-audio::-webkit-media-controls-current-time-display,
-audio::-webkit-media-controls-time-remaining-display {
+
+.control-btn {
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.play-btn {
+    background: var(--primary-color);
+    color: white;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 4px 10px rgba(139, 92, 246, 0.3);
+}
+
+.play-btn:hover {
+    background: var(--primary-hover);
+    transform: scale(1.05);
+}
+
+.secondary-btn {
+    background: rgba(255, 255, 255, 0.1);
     color: var(--text-primary);
+    width: 36px;
+    height: 36px;
+}
+
+.secondary-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.time-display {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
+    min-width: 40px;
+    text-align: center;
+}
+
+.progress-slider {
+    flex-grow: 1;
 }
 
 /* Controls Section */
@@ -191,8 +238,8 @@ audio::-webkit-media-controls-time-remaining-display {
 .custom-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 20px;
-    height: 20px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     background: var(--primary-color);
     cursor: pointer;
@@ -242,7 +289,9 @@ audio::-webkit-media-controls-time-remaining-display {
 }
 
 @media (max-width: 480px) {
-    .player-card { padding: 1.5rem; }
-    .quick-speeds { flex-wrap: wrap; }
-    .speed-btn { flex-basis: 30%; }
+    body { padding: 1rem; }
+    .player-card { padding: 1.25rem; }
+    header h1 { font-size: 2rem; }
+    .quick-speeds { flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+    .speed-btn { flex-basis: 30%; padding: 0.75rem 0.5rem; }
 }
